@@ -29,7 +29,10 @@ export async function digest(): Promise<void> {
   const date = new Date().toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" });
   const message = `*${topic.emoji} ${topic.title} — ${date}*\n\n${body}`;
 
-  await sendTelegram(message);
+  if (!(await sendTelegram(message))) {
+    console.error("[digest] envio falhou — itens continuam pendentes");
+    return;
+  }
   markDigested(items.map((it) => it.id));
   console.log(`[digest] enviado com ${items.length} itens`);
 }
