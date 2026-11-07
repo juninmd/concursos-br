@@ -1,5 +1,6 @@
-// Config específica deste agente. Edite feeds/prompt à vontade.
-export const topic = {
+import { defineTopic } from "@juninmd/digest-kit";
+
+export const topic = defineTopic({
   name: "concursos-br",
   title: "Concursos Radar",
   emoji: "📋",
@@ -16,4 +17,4 @@ Regras do digest:
     { name: "Google News Concursos", url: "https://news.google.com/rss/search?q=concurso%20p%C3%BAblico%20edital%20inscri%C3%A7%C3%B5es%20abertas&hl=pt-BR&gl=BR&ceid=BR:pt-419" },
     { name: "Google News Editais", url: "https://news.google.com/rss/search?q=edital%20concurso%202026%20vagas&hl=pt-BR&gl=BR&ceid=BR:pt-419" },
   ],
-};
+});
